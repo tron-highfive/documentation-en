@@ -95,7 +95,7 @@
 - `name`: The token name to issue.
 - `abbr`: The abbreviation of the token name.
 - `total_supply`: The amount of token to issue.
-- `frozen_supply`: The amount of token and frozen days to freeze.
+- `frozen_supply`: The amount of token and staked days to stake.
 - `trx_num`: trx_num/num defines the token price.
 - `num`: trx_num/num defines the token price.
 - `start_time`: ICO starts time.
@@ -155,9 +155,9 @@
     }
 
 - `owner_address`: The owner of the current account.
-- `frozen_balance`: The amount of TRX to freeze.
-- `frozen_duration`: The freeze duration.
-- `resource`: The type of resource get by freezing TRX.
+- `frozen_balance`: The amount of TRX to stake.
+- `frozen_duration`: The stake duration.
+- `resource`: The type of resource get by staking TRX.
 - `receiver_address`: The account address to receive resource.
 
 ## UnfreezeBalanceContract
@@ -252,10 +252,14 @@
     message CreateSmartContract {
       bytes owner_address = 1;
       SmartContract new_contract = 2;
+      int64 call_token_value = 5;
+      int64 token_id = 6;
     }
 
 - `owner_address`: The owner of the current account.
 - `new_contract`: the smart contract.
+- `call_token_value` : The amount of TRC-10 token to send to the contract when triggers.
+- `token_id` : The id of the TRC-10 token to be sent to the contract.
 
 ## TriggerSmartContract
 
@@ -264,12 +268,16 @@
       bytes contract_address = 2;
       int64 call_value = 3;
       bytes data = 4;
+      int64 call_token_value = 5;
+      int64 token_id = 6;
     }
 
 - `owner_address`: The owner of the current account.
 - `contract_address`: The contract address.
 - `call_value`: The amount of TRX to send to the contract when triggers.
 - `data`: The parameters to trigger the contract.
+- `call_token_value` : The amount of TRC-10 token to send to the contract when triggers.
+- `token_id` : The id of the TRC-10 token to be sent to the contract.
 
 ## UpdateSettingContract
 

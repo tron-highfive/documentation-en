@@ -12,14 +12,14 @@ To prevent vicious attack, TRON network burns 9999 TRX from the account that app
 
 ## Super Representative Election
 
-To vote, you need to have TRON Power(TP). To get TRON Power, you need to freeze TRX. Every 1 frozen TRX accounts for one TRON Power(TP). Every account in TRON network has the right to vote for a super representative candidate. After you unfreeze your frozen TRX, you will lose the responding TRON Power(TP), so your previous vote will be invalid.
+To vote, you need to have TRON Power(TP). To get TRON Power, you need to stake TRX. Every 1 staked TRX accounts for one TRON Power(TP). Every account in TRON network has the right to vote for a super representative candidate. After you unstake your staked TRX, you will lose the responding TRON Power(TP), so your previous vote will be invalid.
 
 Note: Only your latest vote will be counted in TRON network which means your previous vote will be over written by your latest vote.
 
 Example (Using wallet-cli):
 
 ```console
-> freezebalance 10,000,000 3 // Freeze 10 TRX to get 10 TRON Power(TP)
+> freezebalance 10,000,000 3 // Stake 10 TRX to get 10 TRON Power(TP)
 > votewitness witness1 4 witness2 6 // Vote 4 votes for witness1, 6 votes for witness2
 > votewitness witness1 3 witness2 7 // Vote 3 votes for witness1, 7 votes for witness2
 ```
@@ -66,7 +66,7 @@ the daily Voter Rewards = (((the number of votes you vote to a witness) * 4,608,
 
 ### 1. What is Committee
 
-Committee can modify the TRON network parameters, like transacton fees, block producing reward amount, etc. Committee is composed of the current 27 super representatives. Every super representative has the right to start a proposal. The proposal will be passed after it gets more than 19 approves from the super representatives and will become valid in the next maintenance period.
+Committee can modify the TRON network parameters, like transacton fees, block producing reward amount, etc. Committee is composed of the current 27 super representatives. Every super representative has the right to start a proposal. The proposal will be passed after it gets more than 18 approves from the super representatives and will become valid in the next maintenance period.
 
 ### 2. Create a Proposal
 
@@ -81,15 +81,15 @@ The network parameters can be modified([min,max]).
 |  0     | MaintenanceTimeInterval <br> (To modify the maintenance interval of SR)  | 6  Hours <br> [3 * 27, 24 * 3600] s |
 |  1     | AccountUpgradeCost <br> (To modify the cost of applying for SR account) | 9999  TRX <br> [0, 100000000000] TRX |
 |  2     | CreateAccountFee <br> (To modify the account creation fee) | 0.1  TRX <br> [0, 100000000000] TRX |
-|  3     | TransactionFee <br> (To modify the amount of TRX used to gain extra bandwidth) | 10  Sun/Byte <br> [0, 100000000000] TRX |
+|  3     | TransactionFee <br> (To modify the amount of TRX used to gain extra bandwidth) | 1000  Sun/Byte <br> [0, 100000000000] TRX |
 |  4     | AssetIssueFee <br> (To modify asset issuance fee) | 1024  TRX <br> [0, 100000000000] TRX|
 |  5     | WitnessPayPerBlock <br> (To modify SR block generation reward) | 16 TRX <br> [0, 100000000000] TRX |
 |  6     | WitnessStandbyAllowance <br> (To modify the rewards given to the top 27 SRs and <br> the following 100 partners) | 115200  TRX <br> [0, 100000000000] TRX |
-|  7     | CreateNewAccountFeeInSystemContract <br> (To modify the cost of account creation) | 0 TRX  |
+|  7     | CreateNewAccountFeeInSystemContract <br> (To modify the cost of account creation) | 1 TRX  |
 |  8     | CreateNewAccountBandwidthRate <br> (To modify the consumption of bandwidth of account creation) | 1&nbsp;Bandwidth/Byte |
 |  9     | AllowCreationOfContracts <br> (To activate the Virtual Machine (VM)) | 1 <br> {0, 1} |
 |  10   | RemoveThePowerOfTheGr <br> (To remove the GR Genesis votes) |  1 <br> {0, 1}|
-|  11   | EnergyFee <br> (To modify the fee of 1 energy) | 10 Sun <br> [0, 100000000000] TRX |
+|  11   | EnergyFee <br> (To modify the fee of 1 energy) | 140 Sun <br> [0, 100000000000] TRX |
 |  12   | ExchangeCreateFee <br> (To modify the cost of trading pair creation) | 1024 TRX <br> [0, 100000000000] TRX |
 |  13   | MaxCpuTimeOfOneTx <br> (To modify the maximum execution time of one transaction) | 50 ms <br> [0, 1000] ms |
 |  14   | AllowUpdateAccountName <br> (To allow to change the account name) | 0 <br> {0, 1} |
